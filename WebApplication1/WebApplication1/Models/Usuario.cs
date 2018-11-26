@@ -20,11 +20,18 @@ namespace WebApplication1.Models
             this.Anuncios = new HashSet<Anuncio>();
         }
     
-        public int UsuarioID { get; set; }
+        public int UsuarioID { get; set;
+          
+        }
+        
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Pass { get; set; }
+        public string Pass { get; set;
+          
+        }
+        
         public string Privilegio { get; set; }
         public string Phone { get; set; }
     

@@ -1,0 +1,53 @@
+﻿@model WebApplication1.Models.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+
+    <div id="login-div">
+        @using (Html.BeginForm("Atuthorize", "Login", FormMethod.Post))
+        {
+            <table>
+
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">App Name</td>
+                </tr>
+                <tr>
+                    <!--Cambiar Usuarioid por Mail, estaba probrando si corria-->
+                    <td>@Html.LabelFor(model => model.UsuarioID)</td>
+
+                    <td>@Html.EditorFor(model => model.UsuarioID)</td>
+
+                </tr>
+                <td>@Html.ValidationMessageFor(model => model.UsuarioID)</td>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Pass)</td>
+                    <td>@Html.LabelFor(model => model.Pass)</td>
+                </tr>
+                <tr>
+                    <td>@Html.ValidationMessageFor(model => model.UsuarioID)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="name" value="Login" />
+                        <input type="reset" name="name" value="Clear" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</body>
+</html>
