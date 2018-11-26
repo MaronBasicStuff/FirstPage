@@ -11,7 +11,15 @@
     <title>Login</title>
 </head>
 <body>
-
+    <style>
+        #login-div{
+            position:absolute;
+            left:40%;
+            top:40%;
+            border:1px solid #000;
+            padding:10px 10px;
+        }
+    </style>
     <div id="login-div">
         @using (Html.BeginForm("Atuthorize", "Login", FormMethod.Post))
         {
@@ -22,19 +30,25 @@
                     <td style="text-decoration:underline">App Name</td>
                 </tr>
                 <tr>
-                    <!--Cambiar Usuarioid por Mail, estaba probrando si corria-->
-                    <td>@Html.LabelFor(model => model.UsuarioID)</td>
+                  
+                    <td>@Html.LabelFor(model => model.Email)</td>
 
-                    <td>@Html.EditorFor(model => model.UsuarioID)</td>
+                    <td>@Html.EditorFor(model => model.Email)</td>
 
                 </tr>
-                <td>@Html.ValidationMessageFor(model => model.UsuarioID)</td>
+                <td>@Html.ValidationMessageFor(model => model.Email)</td>
                 <tr>
                     <td>@Html.LabelFor(model => model.Pass)</td>
-                    <td>@Html.LabelFor(model => model.Pass)</td>
+                    <td>@Html.EditorFor(model => model.Pass)</td>
                 </tr>
                 <tr>
-                    <td>@Html.ValidationMessageFor(model => model.UsuarioID)</td>
+                    <td>@Html.ValidationMessageFor(model => model.Pass)</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage )</label>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
