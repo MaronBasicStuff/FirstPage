@@ -22,9 +22,7 @@ namespace WebApplication1.Models
             this.Anuncios = new HashSet<Anuncio>();
         }
 
-        public int UsuarioID { get; set;
-
-        }
+        public int UsuarioID { get; set;}
 
 
         public string FirstName { get; set; }
@@ -45,7 +43,7 @@ namespace WebApplication1.Models
         public string Phone { get; set; }
         
         public string LoginErrorMessage { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Anuncio> Anuncios { get; set; }
     }

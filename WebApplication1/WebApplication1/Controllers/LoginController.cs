@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    Session["UsuarioID"] = userDetails.UsuarioID;
+                    Session["usuarioID"] = userDetails.UsuarioID;
                     Session["email"] = userDetails.Email;
                     return RedirectToAction("Index", "Home");
 
