@@ -21,22 +21,25 @@ namespace WebApplication1.Models
         {
             this.Anuncios = new HashSet<Anuncio>();
         }
-    
+
         public int UsuarioID { get; set;
-          
+
         }
-        
+
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
+        [Required(ErrorMessage = "Este Campo es Requerido")]
         public string Email { get; set; }
-        [Required(ErrorMessage="Este Campo es Requerido")]
+        
 
-        public string Pass { get; set;}
+
         [DisplayName("Password")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Este Campo es Requerido")]
+        public string Pass { get; set; }
+    
 
         public string Privilegio { get; set; }
         public string Phone { get; set; }

@@ -1,6 +1,7 @@
 ﻿@model WebApplication1.Models.Usuario
 @{
     Layout = null;
+  
 }
 
 <!DOCTYPE html>
@@ -21,13 +22,13 @@
         }
     </style>
     <div id="login-div">
-        @using (Html.BeginForm("Atuthorize", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
         {
             <table>
 
                 <tr>
                     <td></td>
-                    <td style="text-decoration:underline">App Name</td>
+                    <td>Login</td>
                 </tr>
                 <tr>
                   
@@ -36,7 +37,11 @@
                     <td>@Html.EditorFor(model => model.Email)</td>
 
                 </tr>
-                <td>@Html.ValidationMessageFor(model => model.Email)</td>
+
+                <tr>
+                    <td>@Html.ValidationMessageFor(model => model.Email)</td>
+                </tr>
+
                 <tr>
                     <td>@Html.LabelFor(model => model.Pass)</td>
                     <td>@Html.EditorFor(model => model.Pass)</td>

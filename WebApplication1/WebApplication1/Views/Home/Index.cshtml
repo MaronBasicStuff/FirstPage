@@ -1,6 +1,17 @@
 ﻿@{
+
     ViewBag.Title = "Home Page";
+   
+    //Redirige a pagina de login si el usuario  NO esta logueado
+
+    if (Session["Email"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
 }
+
+<a href="@Url.Action("Logout","Login")"Logout</a>
+
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>

@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult Authorize(WebApplication1.Models.Usuario usuarioModel)
+        public ActionResult Authorize(Usuario usuarioModel)
         {
             using (FirstPageEntities db = new FirstPageEntities())
             {
@@ -28,12 +28,20 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    Session["userID"] = userDetails.UsuarioID;
+                    Session["UsuarioID"] = userDetails.UsuarioID;
+                    Session["email"] = userDetails.Email;
                     return RedirectToAction("Index", "Home");
-               
+
                 }
-                return View();
             }
+            return View();
+        }
+
+        public ActionResult LogOut()
+        {
+            int usuarioID = (int)Session["usuarioId"];
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
