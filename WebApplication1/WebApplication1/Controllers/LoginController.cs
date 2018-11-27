@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
                 {
                     Session["usuarioID"] = userDetails.UsuarioID;
                     Session["email"] = userDetails.Email;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Anuncios");
 
                 }
             }
