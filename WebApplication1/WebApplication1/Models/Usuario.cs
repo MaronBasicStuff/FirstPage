@@ -16,35 +16,20 @@ namespace WebApplication1.Models
 
     public partial class Usuario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuario()
-        {
-            this.Anuncios = new HashSet<Anuncio>();
-        }
-
-        public int UsuarioID { get; set;}
-
-
+        public int UsuarioID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Este Campo es Requerido")]
         public string Email { get; set; }
-        
-
 
         [DisplayName("Password")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Este Campo es Requerido")]
         public string Pass { get; set; }
-    
-
-        public string Privilegio { get; set; }
         public string Phone { get; set; }
-        
-        public string LoginErrorMessage { get; set; }
+        public string Privilegio { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Anuncio> Anuncios { get; set; }
+        public string LoginErrorMessage { get; set; }
     }
 }
