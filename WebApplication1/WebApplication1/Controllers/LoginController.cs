@@ -20,12 +20,12 @@ namespace WebApplication1.Controllers
         {
             using (FirstPageEntities db = new FirstPageEntities())
             {
-                var userDetails = db.Usuarios.Where(x => x.Email == usuarioModel.Email && x.Pass == usuarioModel.Pass).FirstOrDefault();
+              var userDetails = db.Usuarios.Where(x => x.Email == usuarioModel.Email && x.Pass == usuarioModel.Pass).FirstOrDefault();
                 if (userDetails == null)
                 {
                     usuarioModel.LoginErrorMessage = "incorrecto";
                     return View("Index", usuarioModel);
-                }
+               }
                 else
                 {
                     Session["usuarioID"] = userDetails.UsuarioID;
@@ -34,7 +34,6 @@ namespace WebApplication1.Controllers
 
                 }
             }
-            return View();
         }
 
         public ActionResult LogOut()

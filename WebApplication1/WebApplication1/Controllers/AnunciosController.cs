@@ -17,7 +17,9 @@ namespace WebApplication1.Controllers
         // GET: Anuncios
         public ActionResult Index()
         {
-            return View(db.Anuncios.ToList());
+             return View(db.Anuncios.ToList());
+            //return Session["usuarioID"].ToString();
+           // db.Usuarios.FirstOrDefault(u => u.UsuarioID == (int)Session["usuarioID"])
         }
 
         // GET: Anuncios/Details/5

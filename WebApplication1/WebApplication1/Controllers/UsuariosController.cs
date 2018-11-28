@@ -21,19 +21,27 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Usuarios/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            Usuario usuario = db.Usuarios.Find(Session["usuarioID"]);
+            return View(usuario);
+        }
+
+        // GET: Usuarios/Details/5
+        /*public ActionResult Details(int id)
+        {
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
             Usuario usuario = db.Usuarios.Find(id);
             if (usuario == null)
             {
                 return HttpNotFound();
             }
             return View(usuario);
-        }
+        }*/
+
 
         // GET: Usuarios/Create
         public ActionResult Create()
