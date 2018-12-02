@@ -19,8 +19,8 @@
         <li class="nav-item">
             <a class=" nav-link" href="#">Link 1</a>
         </li>
-        <li class="nav-item text-white">
-            <a class="nav-link white-text" href="#">Link 2</a>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link 2</a>
         </li>
 
         <li class="nav-item">
@@ -67,22 +67,7 @@
         {
             <tr>
                 <td>
-                    @*img src="@Html.DisplayFor(modelItem => item.Foto)" style="width:300px; height:300px" />*@
-                    @{ try
-                        {
-                            <img src="@Url.Content(item.Foto)" alt="Image" style="width:50px; height:50px" />
-                            
-
-                            
-                        }
-                        catch (Exception e)
-                        {
-                            <p>AQUI NO HAY NA MALDICION</p>
-                        }
-                    }
-
-                    @* @Html.DisplayFor(modelItem => item.Foto)*@
-
+                    @Html.DisplayFor(modelItem => item.Foto)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Entrada)
