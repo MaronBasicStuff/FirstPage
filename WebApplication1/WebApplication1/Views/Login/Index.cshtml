@@ -1,83 +1,84 @@
 ﻿@model WebApplication1.Models.Usuario
 @{
     Layout = null;
-  
+
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
+    <link rel="stylesheet" href="~/Content/materialize/css/materialize.min.css" />
+
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
-    <link rel="stylesheet" href="~/Content/bootstrap.css" />
 </head>
 <body>
     <style>
-        #login-div {
+        .card {
             position: absolute;
-            left: 40%;
-            top: 40%;
-            border: 1px solid #000;
+            left: 60%;
+            top: 60%
             padding: 10px 10px;
         }
-
-        .field-validation-error{
+        .field-validation-error {
             color: red;
         }
-
     </style>
-    <div id="login-div">
+    
+     
+
+
+    <div id class="row center-align">
         @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
         {
-            <table>
 
-                <tr>
 
-                    <td>Login</td>
+            <div class="col s10 ">
+                <div class="card  white darken-1">
+                    <div class="card-content black-text">
+                        <span class="card-title">Login</span>
+                        
 
-                </tr>
+                            <tr>
+                                <td>@Html.LabelFor(model => model.Email)</td>
 
-                <tr>
+                                <td>@Html.EditorFor(model => model.Email)</td>
 
-                    <td>@Html.LabelFor(model => model.Email)</td>
+                            </tr>
 
-                    <td>@Html.EditorFor(model => model.Email)</td>
+                            <tr>
+                                <td>@Html.ValidationMessageFor(model => model.Email)</td>
+                            </tr>
 
-                </tr>
+                            <tr>
+                                <td>@Html.LabelFor(model => model.Pass)</td>
+                                <td>@Html.EditorFor(model => model.Pass)</td>
+                            </tr>
 
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(model => model.Email)</td>
-                </tr>
+                            <tr>
 
-                <tr>
-                    <td>@Html.LabelFor(model => model.Pass)</td>
-                    <td>@Html.EditorFor(model => model.Pass)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(model => model.Pass)</td>
-                </tr>
+                                <td>@Html.ValidationMessageFor(model => model.Pass)</td>
+                            </tr>
 
-                <tr>
-                    <td colspan="2">
-                        <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit" name="name" value="Login" />
-                        <input type="reset" name="name" value="Clear" />
-                    </td>
-                </tr>
-            </table>
+                            <tr>
+                                <td colspan="2">
+                                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                                </td>
+                            </tr>
+                    </div>
+                    <div class="card-action">
+                        <a class="waves-effect waves-light btn">   <input type="submit" name="name" value="Login" />  </a>
+
+                    </div>
+                    <p>@Html.ActionLink("Click aqui para registrarse!", "Create", "Usuarios")</p>
+                </div>
+            </div>
+
+
+
         }
 
-        <a>
-            @Html.ActionLink("Registrar", "Create","Usuarios")
-        </a>
     </div>
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
@@ -86,3 +87,7 @@
 
 </body>
 </html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
