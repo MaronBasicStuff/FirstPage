@@ -8,17 +8,19 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="~/Content/materialize/css/materialize.min.css" />
+    <link rel="stylesheet" href="~/Content/materialize.css" />
 
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
 </head>
-<body>
-    <style>
+<body style="background-color:lightseagreen">
+   <style>
         .card {
-            position: absolute;
-            left: 60%;
-            top: 60%
+            top: 50px;
+            left: 400px;
+            width: 400px;
+            height: 600px;
+            position: center;
             padding: 10px 10px;
         }
         .field-validation-error {
@@ -29,48 +31,73 @@
      
 
 
-    <div id class="row center-align">
+    <div id class="row">
         @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
         {
 
 
-            <div class="col s10 ">
+            <div class="col-sm-12 ">
                 <div class="card  white darken-1">
                     <div class="card-content black-text">
-                        <span class="card-title">Login</span>
-                        
+                        <span class="card-title" align="center">Login</span>
+                        <br />
+                        <div class="row">
+                            <form class="col s5">
+                                <div class="row">
+                                    <div class="input-field col-sm-6">
+                                        @Html.EditorFor(model => model.Email, new { id = "email"})
+                                        <label class="active" for="email">Email</label>
+                                        <a>@Html.ValidationMessageFor(model => model.Email)</a>
+                                    </div>
+                                </div>
 
-                            <tr>
-                                <td>@Html.LabelFor(model => model.Email)</td>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="input-field col-lg-5">
+                                    @Html.EditorFor(model => model.Pass, new { id = "email_pass"})
+                                    <label for="email_pass">Password</label>
+                                    <a>@Html.ValidationMessageFor(model => model.Pass)</a>
+                                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                                </div>
+                            </div>
+                        </div>
 
-                                <td>@Html.EditorFor(model => model.Email)</td>
+                        @*<tr>
+            <br />
+            <td>@Html.LabelFor(model => model.Email)</td>
 
-                            </tr>
+            <td>@Html.EditorFor(model => model.Email)</td>
 
-                            <tr>
-                                <td>@Html.ValidationMessageFor(model => model.Email)</td>
-                            </tr>
+        </tr>
 
-                            <tr>
-                                <td>@Html.LabelFor(model => model.Pass)</td>
-                                <td>@Html.EditorFor(model => model.Pass)</td>
-                            </tr>
+        <tr>
+            <td>@Html.ValidationMessageFor(model => model.Email)</td>
+        </tr>
 
-                            <tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.Pass)</td>
+            <td>@Html.EditorFor(model => model.Pass)</td>
+        </tr>
 
-                                <td>@Html.ValidationMessageFor(model => model.Pass)</td>
-                            </tr>
+        <tr>
 
-                            <tr>
-                                <td colspan="2">
-                                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
-                                </td>
-                            </tr>
+            <td>@Html.ValidationMessageFor(model => model.Pass)</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+            </td>
+        </tr>
+                        *@
                     </div>
                     <div class="card-action">
                         <a class="waves-effect waves-light btn">   <input type="submit" name="name" value="Login" />  </a>
 
                     </div>
+                    <br />
+                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
                     <p>@Html.ActionLink("Click aqui para registrarse!", "Create", "Usuarios")</p>
                 </div>
             </div>
@@ -83,7 +110,10 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-
+    <script src="~/Content/materialize.min.js"></script>
+    <script> $(document).ready(function () {
+            M.updateTextFields();
+        });</script>
 
 </body>
 </html>

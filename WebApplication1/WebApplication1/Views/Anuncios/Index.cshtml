@@ -12,12 +12,24 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <link rel="stylesheet" href="~/Content/materialize/css/materialize.css" />
+    <link rel="stylesheet" href="~/Content/style.css" />
+
+    <style>
+        nav ul li a{
+            color: #95BFE5;
+        }
+    </style>
+    
 </head>
 
 
-  <nav>
-      <div>
-          <a class="brand-logo">LOGO</a>
+
+  <nav class="mainColor">
+      <div class="nav-wrapper accentColor">
+          <a class="accentColor">J.4.U</a>
+          <ul class="right hide-on-med-and-down accentColor">
+              <li><a>@Html.ActionLink("Cuenta", "Details", "Usuarios")</a></li>
+          </ul>
       </div>
   </nav>
 
@@ -59,21 +71,17 @@
         {
             <tr>
                 <td>
-                    @*img src="@Html.DisplayFor(modelItem => item.Foto)" style="width:300px; height:300px" />*@
+                   
                     @{ try
-                        {
+                       {
                             <img src="@Url.Content(item.Foto)" alt="Image" style="width:50px; height:50px" />
-                            
+                       }catch (Exception e)
 
-                            
-                        }
-                        catch (Exception e)
-                        {
+                       {
                             <p>AQUI NO HAY NA MALDICION</p>
-                        }
+                       }
                     }
 
-                    @* @Html.DisplayFor(modelItem => item.Foto)*@
 
                 </td>
                 <td>
