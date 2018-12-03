@@ -22,5 +22,7 @@ namespace WebApplication1.Models
         public string Located { get; set; }
         public Nullable<System.DateTime> Fecha { get; set; }
         public Nullable<int> UsuarioID { get; set; }
+        public byte[] ImageTest { get; set; }
+        public string Image { get; set; }
     }
 }

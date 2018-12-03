@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
+using WebApplication1;
 
 namespace WebApplication1.Controllers
 {
@@ -17,9 +19,9 @@ namespace WebApplication1.Controllers
         // GET: Anuncios
         public ActionResult Index()
         {
-             return View(db.Anuncios.ToList());
+            return View(db.Anuncios.ToList());
             //return Session["usuarioID"].ToString();
-           // db.Usuarios.FirstOrDefault(u => u.UsuarioID == (int)Session["usuarioID"])
+            // db.Usuarios.FirstOrDefault(u => u.UsuarioID == (int)Session["usuarioID"])
         }
 
         // GET: Anuncios/Details/5
@@ -48,15 +50,27 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostID,Foto,Entrada,Precio,Descript,Located,Fecha,UsuarioID")] Anuncio anuncio)
+        public ActionResult Create(Anuncio anuncio, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
-                db.Anuncios.Add(anuncio);
+                string path = Path.Combine(Server.MapPath("~/Images"), Path.GetFileName(file.FileName));
+                file.SaveAs(path);
+                db.Anuncios.Add(new Anuncio
+                {
+                    Foto = "~/Images/" + file.FileName,
+                    PostID = anuncio.PostID,
+                    Entrada = anuncio.Entrada,
+                    Precio = anuncio.Precio,
+                    Descript = anuncio.Descript,
+                    Located = anuncio.Located,
+                    Fecha = anuncio.Fecha,
+                    UsuarioID = anuncio.UsuarioID
+
+                });
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(anuncio);
         }
 
@@ -80,7 +94,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostID,Foto,Entrada,Precio,Descript,Located,Fecha,UsuarioID")] Anuncio anuncio)
+        public ActionResult Edit([Bind(Include = "PostID,Entrada,Precio,Descript,Located,Fecha,UsuarioID,Foto")] Anuncio anuncio)
         {
             if (ModelState.IsValid)
             {
