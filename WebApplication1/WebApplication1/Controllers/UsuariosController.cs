@@ -27,10 +27,21 @@ namespace WebApplication1.Controllers
             return View(usuario);
         }
 
-        public ActionResult Cosas()
+        // GET: Usuarios/Details/5
+        /*public ActionResult Details(int id)
         {
-            return View();
-        }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            Usuario usuario = db.Usuarios.Find(id);
+            if (usuario == null)
+            {
+                return HttpNotFound();
+            }
+            return View(usuario);
+        }*/
+
 
         // GET: Usuarios/Create
         public ActionResult Create()
