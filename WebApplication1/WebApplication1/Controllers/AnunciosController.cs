@@ -31,12 +31,32 @@ namespace WebApplication1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            Usuario usuario = db.Usuarios.Find(Session["usuarioID"]);
             Anuncio anuncio = db.Anuncios.Find(id);
+            
+            
             if (anuncio == null)
             {
                 return HttpNotFound();
             }
             return View(anuncio);
+        }
+
+        public ActionResult AnunciosAdmin()
+        {
+            return View(db.Anuncios.ToList());
+            //return Session["usuarioID"].ToString();
+            // db.Usuarios.FirstOrDefault(u => u.UsuarioID == (int)Session["usuarioID"])
+        }
+
+        public ActionResult Search(string searchElement)
+        {
+            var searchEl = from s in db.Anuncios select s;
+            if (!String.IsNullOrEmpty(searchElement))
+            {
+                searchEl = searchEl.Where(c => c.Entrada.Contains(searchElement));
+            }
+            return View(searchEl);
         }
 
         // GET: Anuncios/Create
@@ -65,7 +85,7 @@ namespace WebApplication1.Controllers
                     Descript = anuncio.Descript,
                     Located = anuncio.Located,
                     Fecha = anuncio.Fecha,
-                    UsuarioID = anuncio.UsuarioID
+                    UsuarioID = (int) Session["usuarioID"]
 
                 });
                 db.SaveChanges();

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
@@ -47,13 +48,51 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        var senderEmail = new MailAddress("miguelmc0217@gmail.com", "Sender");
+                        var receiverEmail = new MailAddress(usuario.Email, "Receiver");
+                        var password = "170210101407";
+                        var subject = "Cuenta en S.U.A";
+                        var sub = "";
+                        var body = "Esta es su cuenta" + usuario.FirstName + usuario.LastName + "puede acceder a ella, con la contraseña " + usuario.Pass;
+                        var smtp = new SmtpClient
+                        {
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true,
+                            DeliveryMethod = SmtpDeliveryMethod.Network,
+                            UseDefaultCredentials = false,
+                            Credentials = new NetworkCredential(senderEmail.Address, password)
+                        };
+                        using (var mess = new MailMessage(senderEmail, receiverEmail)
+                        {
+                            Subject = subject,
+                            Body = body
+                        })
+                        {
+                            smtp.Send(mess);
+                        }
+                        return View();
+                    }
+                }
+                catch (Exception)
+                {
+                    ViewBag.Error = "Some Error";
+                }
                 return RedirectToAction("Index");
             }
 
             return View(usuario);
         }
+
+        
+
 
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
