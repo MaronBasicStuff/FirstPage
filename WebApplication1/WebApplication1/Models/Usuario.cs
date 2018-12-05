@@ -11,18 +11,13 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Usuario
     {
         public int UsuarioID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Required(ErrorMessage ="Este campo  es requerido")]
-        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Este campo  es requerido")]
-        [DataType(DataType.Password)]
         public string Pass { get; set; }
         public string Phone { get; set; }
         public string Privilegio { get; set; }

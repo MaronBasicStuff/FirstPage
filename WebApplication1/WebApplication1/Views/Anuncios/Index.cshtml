@@ -13,45 +13,34 @@
     <title>Index</title>
     <link rel="stylesheet" href="~/Content/materialize/css/materialize.css" />
     <link rel="stylesheet" href="~/Content/style.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
-        nav ul li a {
+        nav ul li a{
             color: #95BFE5;
         }
     </style>
-
+    
 </head>
 
 
 
   <nav class="mainColor">
-      <div class="nav-wrapper mainColor">
-          <a style="font-size: 20px">J.4.U</a>
-          <ul class="right hide-on-med-and-down">
-              <li><a>@Html.ActionLink("Perfil", "Details", "Usuarios")</a></li>
+      <div class="nav-wrapper accentColor">
+          <a class="accentColor">J.4.U</a>
+          <ul class="right hide-on-med-and-down accentColor">
+              <li><a>@Html.ActionLink("Cuenta", "Details", "Usuarios")</a></li>
           </ul>
       </div>
   </nav>
 
 <body>
 
-    
+
 
     <p>
         @Html.ActionLink("Create New", "Create")
         
     </p>
-
-    @using (Html.BeginForm("Search", "Anuncios", FormMethod.Get))
-    {
-    <p >
-        <i class="material-icons">search</i>
-         @Html.TextBox("searchElement", null,  new { @placeholder = "Search here!", @style = "width: 200px"} )
-        <input type="submit" value="Search" class="waves-effect waves-red btn" style="width:auto; height: 30px"/>
-    </p>
-    }
-    
     <table class="table">
         <tr>
             <th>
@@ -80,7 +69,7 @@
 
         @foreach (var item in Model)
         {
-            <tr >
+            <tr>
                 <td>
                    
                     @{ try
@@ -96,11 +85,10 @@
 
                 </td>
                 <td>
-                    @Html.ActionLink(item.Entrada, "Details", new { id = item.PostID })
+                    @Html.DisplayFor(modelItem => item.Entrada)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Precio)
-                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Descript)
@@ -115,16 +103,20 @@
                     @Html.DisplayFor(modelItem => item.UsuarioID)
                 </td>
                 <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PostID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PostID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PostID })
                 </td>
             </tr>
         }
 
     </table>
-
 </body>
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> parent of 3d8edc6... LO URTIMO
 <script src="~/Scripts/bootstrap.js"></script>
-<script src="~/Content/materialize.js"></script>
 </html>
