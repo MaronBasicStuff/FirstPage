@@ -285,8 +285,6 @@
     <Content Include="Views\Anuncios\Edit.cshtml" />
     <Content Include="Views\Anuncios\Index.cshtml" />
     <Content Include="Views\Usuarios\UserDetails.cshtml" />
-    <Content Include="Views\Anuncios\AnunciosAdmin.cshtml" />
-    <Content Include="Views\Anuncios\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

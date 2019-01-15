@@ -10,127 +10,73 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Details</title>
-    <link rel="stylesheet" href="~/Content/materialize.css"/>
-    <link rel="stylesheet" href="~/Content/style.css"/>
 </head>
-
-
 <body>
-    <style>
-        nav ul li a {
-            color: #95BFE5;
-        }
-    </style>
-
-
-
-
-
-    <nav class="mainColor">
-        <div class="nav-wrapper mainColor">
-            <a>J.4.U</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a>@Html.ActionLink("Perfil", "Details", "Usuarios")</a></li>
-                <li><a>@Html.ActionLink("Inicio", "Index", "Anuncios")</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div style="margin-top: 50px; margin-left: 30px" class="box">
-        <h4>@Html.DisplayFor(model => model.Entrada)</h4>
+    <div>
+        <h4>Anuncio</h4>
         <hr />
-
-
-        @{ try
-            {
-                <img src="@Url.Content(Model.Foto)" alt="Image" style="width:350px; height:350px" />
-            }
-            catch (Exception e)
-
-            {
-                <p>AQUI NO HAY NA MALDICION</p>
-            }
-        }
-        <dl class="box" align="top" style="margin-left: 150px; position:relative">
-
-            <dt style="font-size: 20px"><b>Articulo: </b>
-            <dd class="text" style="margin-left: inherit">@Html.DisplayFor(model => model.Entrada)</dd>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Foto)
             </dt>
-
-            <dt style="font-size: 20px"><b>Precio: </b>
-            <dd class="text" style="margin-left: inherit">@Html.DisplayFor(model => model.Precio)</dd></dt>
-
-            <dt style="font-size: 20px"><b>Vendedor: </b>
-            <dd class="text" style="margin-left: inherit">@Html.DisplayFor(model => model.UsuarioID)</dd></dt>
-
-            <dt style="font-size: 20px"><b>Contacto: </b>
-            <dd class="text" style="margin-left: inherit">1234567890</dd></dt>
-
-            <dt style="font-size: 20px"><b>Located: </b>
-            <dd class="text" style="margin-left: inherit">Santo Domingo Este</dd></dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Foto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Entrada)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Entrada)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Precio)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Precio)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Descript)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Descript)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Located)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Located)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fecha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UsuarioID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UsuarioID)
+            </dd>
+    
         </dl>
-
-        
-
-
-        @*@<dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
-
-
-        <dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Entrada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Entrada)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Precio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Descript)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Descript)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Located)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Located)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UsuarioID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UsuarioID)
-        </dd>*@
-
     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 
     <h4 style="margin-left: 20px">
@@ -145,5 +91,21 @@
 
 
         </div>
+=======
+=======
+>>>>>>> parent of 3d8edc6... LO URTIMO
+=======
+>>>>>>> parent of 3d8edc6... LO URTIMO
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PostID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 3d8edc6... LO URTIMO
+=======
+>>>>>>> parent of 3d8edc6... LO URTIMO
+=======
+>>>>>>> parent of 3d8edc6... LO URTIMO
 </body>
-        </html>
+</html>

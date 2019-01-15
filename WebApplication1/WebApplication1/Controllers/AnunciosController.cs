@@ -24,17 +24,6 @@ namespace WebApplication1.Controllers
             // db.Usuarios.FirstOrDefault(u => u.UsuarioID == (int)Session["usuarioID"])
         }
 
-
-        public ActionResult Search(string searchElement)
-        {
-            var searchEl = from s in db.Anuncios select s;
-            if (!String.IsNullOrEmpty(searchElement))
-            {
-                searchEl = searchEl.Where(c => c.Entrada.Contains(searchElement));
-            }
-            return View(searchEl);
-        }
-
         // GET: Anuncios/Details/5
         public ActionResult Details(int? id)
         {
@@ -52,11 +41,6 @@ namespace WebApplication1.Controllers
 
         // GET: Anuncios/Create
         public ActionResult Create()
-        {
-            return View();
-        }
-
-        public ActionResult AnunciosAdmin()
         {
             return View();
         }
