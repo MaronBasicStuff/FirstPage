@@ -13,7 +13,6 @@
     <title>Index</title>
     <link rel="stylesheet" href="~/Content/materialize/css/materialize.css" />
     <link rel="stylesheet" href="~/Content/style.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
         nav ul li a {
@@ -22,15 +21,16 @@
     </style>
 
 </head>
- 
+
 
 
 <nav class="mainColor">
     <div class="nav-wrapper mainColor">
-        <a>J.4.U</a>
+        <a style="font-size: 20px">S.U.A</a>
         <ul class="right hide-on-med-and-down">
             <li><a>@Html.ActionLink("Perfil", "Details", "Usuarios")</a></li>
-            <li><a>@Html.ActionLink("Perfil", "AnunciosAdmin", "Anuncios")</a></li>
+            <li><a>@Html.ActionLink("Admin", "AnunciosAdmin", "Anuncios")</a></li>
+            <li><a>@Html.ActionLink("Usuarios","Index", "Usuarios")</a></li>
         </ul>
     </div>
 </nav>
@@ -43,15 +43,6 @@
         @Html.ActionLink("Create New", "Create")
 
     </p>
-
-    @using (Html.BeginForm("Search", "Anuncios", FormMethod.Get))
-    {
-        <p style="margin-right: 400px ">
-            <a style="margin-right: 300px; margin-left:20px">  @Html.TextBox("searchElement") </a>
-            <input type="submit" value="Search" class="waves-effect waves-red btn" />
-        </p>
-    }
-
     <table class="table">
         <tr>
             <th>
@@ -97,11 +88,10 @@
 
                 </td>
                 <td>
-                    @Html.ActionLink(item.Entrada, "Details", new { id = item.PostID })
+                    @Html.DisplayFor(modelItem => item.Entrada)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Precio)
-
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Descript)
@@ -124,9 +114,8 @@
         }
 
     </table>
+
+    
 </body>
-
-
 <script src="~/Scripts/bootstrap.js"></script>
-<script src="~/Content/materialize.js"></script>
 </html>

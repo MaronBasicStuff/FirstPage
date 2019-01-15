@@ -28,8 +28,11 @@ namespace WebApplication1.Controllers
                }
                 else
                 {
+
                     Session["usuarioID"] = userDetails.UsuarioID;
                     Session["email"] = userDetails.Email;
+
+
                     return RedirectToAction("Index", "Anuncios");
 
                 }
