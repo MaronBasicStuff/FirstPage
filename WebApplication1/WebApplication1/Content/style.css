@@ -9,19 +9,3 @@
 .accentColor {
     color: #205C8C;
 }
-
-.myText{
-    width:100px;
-    display: inline-block;
-}
-
-.box {
-    display: inline-block;
-    vertical-align: top;
-}
-
-
-.text {
-    display: inline-flex;
-    align-items: center;
-}

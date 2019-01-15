@@ -30,15 +30,7 @@ namespace WebApplication1.Controllers
                 {
                     Session["usuarioID"] = userDetails.UsuarioID;
                     Session["email"] = userDetails.Email;
-                    Session["privilegio"] = userDetails.Privilegio;
-                    if(userDetails.Privilegio == "admin")
-                    {
-                        return RedirectToAction("AnunciosAdmin", "Anuncios");
-                    }
-                    else {
-                        return RedirectToAction("Index", "Anuncios");
-                    }
-                    
+                    return RedirectToAction("Index", "Anuncios");
 
                 }
             }
